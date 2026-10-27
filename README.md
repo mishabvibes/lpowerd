@@ -98,7 +98,8 @@ Rapid charge and conservation can't both be on, so turning one on turns the othe
 ## Install
 
 ```bash
-cd ~/lpowerd
+git clone https://github.com/mishabvibes/lpowerd.git
+cd lpowerd
 sudo ./install.sh
 lpctl status
 ```
