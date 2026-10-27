@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+import os, sys
+here = os.path.dirname(os.path.realpath(__file__))
+for p in (os.path.join(here, ".."), "/usr/lib/lpowerd"):
+    if os.path.isfile(os.path.join(p, "lpowerd", "__init__.py")):
+        sys.path.insert(0, os.path.abspath(p))
+        break
+from lpowerd.cli import main
+sys.exit(main())

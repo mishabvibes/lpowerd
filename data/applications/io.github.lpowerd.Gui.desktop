@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Power Control
+GenericName=Battery & Performance
+Comment=Battery care and performance profiles for Lenovo LOQ, Legion and IdeaPad laptops
+Exec=/usr/bin/lpowerd-gui
+Icon=battery-good-symbolic
+Terminal=false
+Categories=System;Settings;HardwareSettings;
+Keywords=battery;conservation;rapid;charge;lenovo;legion;loq;profile;power;
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Power Control Tray
+Comment=Battery conservation, rapid charge and performance profiles
+Exec=/usr/bin/lpowerd-tray
+Icon=battery-good-symbolic
+Categories=System;Settings;HardwareSettings;
+X-GNOME-Autostart-enabled=true
+NoDisplay=true

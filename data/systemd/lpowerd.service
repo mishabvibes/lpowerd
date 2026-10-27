@@ -1,0 +1,39 @@
+[Unit]
+Description=Lenovo battery and performance-profile daemon
+Documentation=file:///usr/share/doc/lpowerd/README.md
+After=dbus.service systemd-logind.service
+
+[Service]
+Type=dbus
+BusName=io.github.lpowerd
+ExecStart=/usr/bin/lpowerd
+Restart=on-failure
+RestartSec=2
+StateDirectory=lpowerd
+StateDirectoryMode=0755
+
+# Hardening. /sys stays writable (ProtectKernelTunables is deliberately off).
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+NoNewPrivileges=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+CapabilityBoundingSet=
+MemoryMax=64M
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+#!/bin/sh
+# Belt-and-braces re-apply after resume; the daemon also listens to
+# logind's PrepareForSleep. Never blocks resume for more than 5 s.
+case "$1" in
+  post)
+    busctl --system --timeout=5 call io.github.lpowerd /io/github/lpowerd \
+      io.github.lpowerd.Manager1 Reapply >/dev/null 2>&1 || true
+    ;;
+esac
+exit 0

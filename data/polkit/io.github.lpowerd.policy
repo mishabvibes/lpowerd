@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>lpowerd</vendor>
+
+  <!-- Everyday toggles: no password for the user at the local, active seat. -->
+  <action id="io.github.lpowerd.charging">
+    <description>Change battery charging mode</description>
+    <message>Authentication is required to change battery charging settings</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <action id="io.github.lpowerd.profile">
+    <description>Change performance profile</description>
+    <message>Authentication is required to change the performance profile</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <!-- Policy configuration (schedules, thermal trip points). Also password-free so the
+       settings window works without prompts; change to auth_admin_keep to lock it down. -->
+  <action id="io.github.lpowerd.configure">
+    <description>Configure lpowerd charging policies</description>
+    <message>Authentication is required to configure charging policies</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+</policyconfig>
